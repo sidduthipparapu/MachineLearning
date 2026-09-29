@@ -1,17 +1,26 @@
-# import the packages 
-from sklearn.linear_model import LogisticRegression
-import numpy as np 
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
-# Take input 
-X = np.array([[2],[3],[4],[5],[7],[9]])
+# Data
+X = [[1], [2], [3], [4], [5]]
+y = [30, 40, 50, 60, 70]
 
-Y = np.array([0,0,0,1,1,1])
+# Create and train model
+model = LinearRegression()
+model.fit(X, y)
 
-# train the model 
-model = LogisticRegression()
-model.fit(X,Y)
+# Prediction
+prediction = model.predict([[6]])
+print("Predicted salary:", prediction[0])
 
-#predict 
-new_stu = np.array([[9]])
-pred = model.predict(new_stu)
-print("The actual value is:", pred)
+# Plot actual data
+plt.scatter(X, y)
+
+# Plot regression line
+plt.plot(X, model.predict(X))
+
+plt.xlabel("Years of Experience")
+plt.ylabel("Salary")
+plt.title("Linear Regression")
+
+plt.show()
