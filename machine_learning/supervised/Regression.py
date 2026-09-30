@@ -24,3 +24,4 @@ plt.ylabel("Salary")
 plt.title("Linear Regression")
 
 plt.show()
+#the final 
